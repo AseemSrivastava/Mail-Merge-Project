@@ -10,4 +10,7 @@ with open("./Input/Letters/starting_letter.txt") as letters_file:
     for name in names:
         stripped_name = name.strip() #Remove leading and trailing spaces
         new_letter = letter_content.replace(PLACEHOLDER, stripped_name)
-        print(new_letter)
+
+        #open/create the file for each person separately with a letter addressing to that person.
+        with open(f"./Output/ReadyToSend/letter_for_{stripped_name}.txt", mode="w") as final_letter:
+            final_letter.write(new_letter)
